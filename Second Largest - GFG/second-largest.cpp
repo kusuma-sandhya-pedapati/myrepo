@@ -12,13 +12,18 @@ public:
 	int print2largest(int arr[], int n) {
 	    // code here
 	    int nlargest=-1;
-	    sort(arr,arr+n);
-	    for(int i=n-2;i>=0;i--){
-	        if(arr[i]!=arr[n-1]){
-	            nlargest=arr[i];
-	            break;
-	        }
-	    }
+        int largest=arr[0];
+        for(int i=1;i<n;i++){
+            if(arr[i]>largest){
+                nlargest=largest;
+                largest=arr[i];
+            }
+            if(arr[i]!=largest){
+                if(arr[i]>nlargest){
+                    nlargest=arr[i];
+                }
+            }
+        }
 	    return nlargest;
 	}
 };
